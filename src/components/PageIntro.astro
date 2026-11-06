@@ -1,0 +1,16 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  copy?: string;
+  tone?: 'purple' | 'teal' | 'orange';
+}
+
+const { eyebrow, title, copy, tone = 'purple' } = Astro.props;
+---
+
+<header class={`page-intro page-intro--${tone}`}>
+  {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+  <h1>{title}</h1>
+  {copy && <p>{copy}</p>}
+</header>

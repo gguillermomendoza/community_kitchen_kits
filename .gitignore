@@ -1,6 +1,10 @@
-# dependencies
 node_modules/
 .vscode/
 .idea/
 .wix/
 jsconfig.json
+dist/
+.astro/
+.env
+.env.*
+!.env.example

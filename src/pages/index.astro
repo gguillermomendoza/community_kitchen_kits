@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../utils/withBase';
+---
+
+<BaseLayout title="Community Kitchen Kits | Los Angeles | newly housed" description="We collect gently used kitchen items and build complete kitchen kits for people moving into permanent housing in Los Angeles.">
+  <main class="home-stage">
+    <img class="home-logo" src={withBase('/assets/images/ckk-logo.webp')} alt="Community Kitchen Kits, illustrated with colorful kitchen utensils" width="1500" height="1066" />
+
+    <nav class="bubble-nav" aria-label="Main navigation">
+      <a class="about" href={withBase('/about')}>About</a>
+      <a class="donate" href={withBase('/donate')}>Donate</a>
+      <a class="contact" href={withBase('/contact')}>Contact</a>
+      <a class="news" href={withBase('/news')}>News</a>
+    </nav>
+
+    <p class="tagline">Repurposing items from our kitchens<br />to build complete kitchen sets for<br />the newly housed.</p>
+
+    <section class="volunteer-callout">
+      <a href={withBase('/contact?subject=volunteer')}>Volunteer</a>
+      <span class="arrow" aria-hidden="true">&#8601;</span>
+      <p>Click here to learn about upcoming<br /><em>kit-building and volunteer opportunities!</em><br />Tell us when you want to come and we'll<br />send you the details.</p>
+    </section>
+
+    <section class="program">
+      <p>A program of</p>
+      <a href="https://bigsunday.org/" rel="noreferrer"><img src={withBase('/assets/images/big-sunday.webp')} alt="Big Sunday" /></a>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .home-stage { position: relative; width: min(940px, 100%); min-height: 790px; margin: 0 auto; color: #563515; font-family: 'Amatic SC', cursive; }
+  .home-logo { position: absolute; top: 28px; left: 0; width: 590px; height: 420px; object-fit: contain; }
+  .bubble-nav a { position: absolute; display: grid; width: 76px; height: 76px; place-items: center; border-radius: 50%; color: #33312e; font-size: 23px; text-decoration: none; text-transform: uppercase; }
+  .bubble-nav a:hover { color: #33312e; transform: scale(1.05); }
+  .bubble-nav .about { top: 77px; right: 207px; background: #b59dcb; }
+  .bubble-nav .donate { top: 122px; right: 72px; background: #5cab78; }
+  .bubble-nav .contact { top: 218px; right: 182px; background: #f58243; }
+  .bubble-nav .news { top: 294px; right: 56px; background: #46c2bd; }
+  .tagline { position: absolute; top: 424px; left: 0; margin: 0; font-size: 38px; letter-spacing: .11em; line-height: 1.35; text-transform: uppercase; }
+  .volunteer-callout { position: absolute; top: 574px; left: 180px; }
+  .volunteer-callout > a { display: grid; width: 174px; height: 75px; place-items: center; border-radius: 42px; color: white; background: #b59dcb; font-size: 25px; letter-spacing: .22em; text-decoration: none; text-transform: uppercase; }
+  .volunteer-callout .arrow { position: absolute; top: -76px; left: 115px; color: #8a765e; font-family: Arial, sans-serif; font-size: 100px; font-weight: 200; transform: rotate(-12deg); }
+  .volunteer-callout p { position: absolute; top: -73px; left: 202px; width: 330px; margin: 0; font-size: 20px; line-height: 1.48; text-transform: uppercase; }
+  .volunteer-callout em { color: #f37121; font-style: normal; }
+  .program { position: absolute; top: 422px; right: 4px; width: 250px; text-align: center; }
+  .program p { margin: 0 0 -5px; font-size: 23px; letter-spacing: .18em; text-transform: uppercase; }
+  .program img { width: 240px; height: 145px; object-fit: contain; }
+
+  @media (max-width: 760px) {
+    .home-stage { width: 100%; min-height: 1120px; }
+    .home-logo { top: 22px; left: 50%; width: 590px; max-width: none; transform: translateX(-50%); }
+    .bubble-nav { position: absolute; top: 455px; left: 50%; display: grid; grid-template-columns: repeat(4, 68px); gap: 12px; transform: translateX(-50%); }
+    .bubble-nav a { position: static; width: 68px; height: 68px; font-size: 19px; }
+    .tagline { top: 555px; left: 20px; font-size: clamp(27px, 8vw, 35px); line-height: 1.35; white-space: nowrap; }
+    .volunteer-callout { top: 780px; left: 20px; }
+    .volunteer-callout .arrow { display: none; }
+    .volunteer-callout p { top: 92px; left: 0; width: 340px; }
+    .program { top: 930px; right: 18px; transform: scale(.82); transform-origin: right top; }
+  }
+</style>

@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../utils/withBase';
+---
+
+<BaseLayout title="About | CommunityKitchenKits" description="Learn about Community Kitchen Kits and our goal of helping newly housed neighbors while keeping useful items out of landfills.">
+  <main class="about-stage">
+    <section class="about-top">
+      <div class="family-block">
+        <img src={withBase('/assets/images/family.webp')} alt="Illustration of a family receiving household supplies" />
+        <h1>About</h1>
+      </div>
+      <div class="goals">
+        <p>Our goal is threefold:</p>
+        <ol>
+          <li>To offer assistance to those in our community facing challenging times.</li>
+          <li>To keep unused, yet useful items out of our landfill.</li>
+          <li>To connect with members of our greater community around a common goal.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="about-copy">
+      <p>Community Kitchen Kits builds and delivers complete kitchen kits for people moving into permanent housing after experiencing housing insecurity. We provide kits for organizations that help people move from bridge housing to permanent housing, including Covenant House, Hope of the Valley, LA Family Housing, Good Shepherd, PATH, and BOSS in the Bay Area.</p>
+      <p>The organizations we partner with provide wraparound services for the newly housed, including mental health support. These groups do not always have excess funds to provide moving-in items apart from toilet paper, soap, and a blanket.</p>
+      <p>That's where we all come in! Click <a href={withBase('/donate')}>here</a> to see how you can help!</p>
+      <p>To learn more about the organizations we work with, please visit their websites:<br />
+        <a href="https://bigsunday.org/" rel="noreferrer">Big Sunday</a><br />
+        <a href="https://www.hopeofthevalley.org" rel="noreferrer">Hope of the Valley</a><br />
+        <a href="https://www.covenanthouse.org" rel="noreferrer">Covenant House</a><br />
+        <a href="https://epath.org/" rel="noreferrer">PATH</a><br />
+        <a href="https://lafh.org/" rel="noreferrer">LA Family Housing</a><br />Good Shepherd Shelter
+      </p>
+      <p>Community Kitchen Kits is a program of Big Sunday, a registered 501(c)(3) organization.</p>
+    </section>
+    <a class="up" href={withBase('/')} aria-label="Back to home">&#8963;</a>
+  </main>
+</BaseLayout>
+
+<style>
+  .about-stage { width: min(940px, calc(100% - 36px)); margin: 0 auto; padding: 68px 0 80px; color: #563515; font-family: 'Amatic SC', cursive; }
+  .about-top { display: grid; grid-template-columns: 370px 1fr; gap: 48px; align-items: center; }
+  .family-block { position: relative; height: 390px; }
+  .family-block img { width: 305px; height: 390px; object-fit: contain; }
+  .family-block h1 { position: absolute; right: 0; bottom: 17px; margin: 0; color: #563515; font-size: 65px; font-weight: 700; text-transform: uppercase; }
+  .goals { padding: 36px 30px; border-radius: 28px; background: #76cfca; font-size: 35px; line-height: 1.32; text-transform: uppercase; }
+  .goals p { margin: 0; }
+  .goals ol { margin: 0; padding: 0; list-style-position: inside; }
+  .about-copy { margin-top: 20px; font-size: 29px; letter-spacing: .025em; line-height: 1.42; text-transform: uppercase; }
+  .about-copy p { margin: 0 0 32px; }
+  .about-copy a { color: #563515; }
+  .up { display: grid; width: 48px; height: 48px; margin: 20px auto 0; place-items: center; border-radius: 50%; color: white; background: #20bab1; font: 28px Arial, sans-serif; text-decoration: none; }
+  @media (max-width: 700px) { .about-stage { padding-top: 28px; } .about-top { grid-template-columns: 1fr; gap: 20px; } .family-block { width: 330px; max-width: 100%; margin: auto; } .goals { font-size: 28px; } .about-copy { font-size: 25px; } }
+</style>

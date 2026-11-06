@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../utils/withBase';
+---
+
+<BaseLayout title="Page not found | Community Kitchen Kits" description="The requested Community Kitchen Kits page could not be found." hideNav={true}>
+  <section class="not-found">
+    <p class="eyebrow">Something is missing</p>
+    <p class="number">404</p>
+    <h1>This box is not complete.</h1>
+    <p>The page may have moved, but you can head home and find everything else.</p>
+    <a class="button button--orange" href={withBase('/')}>Back to home</a>
+  </section>
+</BaseLayout>
+
+<style>
+  .not-found { display: grid; min-height: 100vh; align-content: center; justify-items: center; padding: 2rem; text-align: center; }
+  .number { margin: 0; color: var(--lilac); font-family: 'Amatic SC', cursive; font-size: clamp(8rem, 28vw, 18rem); line-height: .65; }
+  h1 { margin: 2rem 0 0; color: var(--purple); font-family: 'Amatic SC', cursive; font-size: clamp(3.5rem, 9vw, 6.5rem); line-height: 1; }
+  .not-found > p:not(.eyebrow, .number) { max-width: 480px; margin-bottom: 2rem; font-size: 1.15rem; }
+</style>

@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../utils/withBase';
+---
+
+<BaseLayout title="Contact | CommunityKitchenKits" description="Contact Community Kitchen Kits about donations, volunteering, youth participation, and kit-building events.">
+  <main class="contact-stage">
+    <section class="contact-copy">
+      <h1>Contact us if you:</h1>
+      <ul>
+        <li>Have a question about a donation</li>
+        <li>Would like to join our volunteer team</li>
+        <li>Would like to know how to get kids involved</li>
+        <li>Would like to organize a larger donation and kit-building event</li>
+      </ul>
+    </section>
+    <img src={withBase('/assets/images/contact.webp')} alt="Illustration of a cup telephone" />
+    <a class="email" href="mailto:communitykitchenkits@gmail.com">communitykitchenkits@gmail.com</a>
+    <a class="up" href={withBase('/')} aria-label="Back to home">&#8963;</a>
+    <div class="social"><a href="https://www.instagram.com/communitykitchenkits/" rel="noreferrer">Instagram</a><a href="https://www.facebook.com/groups/742679119895109" rel="noreferrer">Facebook</a></div>
+  </main>
+</BaseLayout>
+
+<style>
+  .contact-stage { position: relative; width: min(860px, calc(100% - 30px)); min-height: 760px; margin: 0 auto; color: #563515; font-family: 'Amatic SC', cursive; text-transform: uppercase; }
+  .contact-copy { position: absolute; top: 58px; left: 0; z-index: 2; }
+  h1 { margin: 0 0 38px 260px; font-size: 60px; font-weight: 400; }
+  ul { margin: 0; padding: 0; list-style: none; font-size: 31px; line-height: 2.35; }
+  li::before { content: '-'; }
+  img { position: absolute; top: 80px; right: 0; width: 445px; height: 305px; object-fit: contain; }
+  .email { position: absolute; top: 490px; left: 255px; color: #20bab1; font-size: 38px; letter-spacing: .03em; }
+  .up { position: absolute; top: 625px; left: 50%; display: grid; width: 48px; height: 48px; place-items: center; border-radius: 50%; color: white; background: #20bab1; font: 28px Arial, sans-serif; text-decoration: none; }
+  .social { position: absolute; top: 630px; right: 0; display: flex; gap: 20px; }
+  .social a { color: #99948b; font-size: 22px; }
+  @media (max-width: 700px) { .contact-stage { min-height: 850px; } .contact-copy { position: relative; top: 25px; } h1 { margin-left: 0; font-size: 50px; text-align: center; } ul { font-size: 25px; line-height: 1.8; } img { top: 370px; right: 50%; width: 360px; transform: translateX(50%); } .email { top: 670px; left: 50%; width: 100%; font-size: 29px; text-align: center; transform: translateX(-50%); } .up { top: 755px; } .social { top: 765px; right: 10px; } }
+</style>

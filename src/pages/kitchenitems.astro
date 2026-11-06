@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../utils/withBase';
+---
+
+<BaseLayout title="Kitchen Items | CommunityKitchenKits" description="See which kitchen items Community Kitchen Kits collects and how to assemble a complete kit.">
+  <main class="kitchen-page">
+    <header><h1>What and How!</h1></header>
+    <section class="top-grid">
+      <div class="collecting">
+        <h2>We are Collecting:</h2>
+        <ul>
+          <li>Plates, bowls, glasses, mugs</li><li>Knives, forks, spoons</li><li>Pots, pans, baking trays, cutting boards</li><li>Spatulas, can openers, stirrers, cutting knives</li><li>Oven mitts, dish towel</li><li>Extras welcome: toasters, coffee makers, blenders, mixing bowls, table linens</li><li>Other small kitchen tools and gadgets</li>
+        </ul>
+        <p>Please be sure the items you donate are<br /><em>clean and gently used.</em><br />See below for items we are <u>not</u> collecting</p>
+      </div>
+      <div class="dropoff">
+        <h2>Drop Off Locations:</h2>
+        <div class="paused">Due to a backlog we<br />are currently not<br />accepting donations</div>
+        <p>Check back<br />regularly as we<br />add new drop-off<br />locations.</p>
+      </div>
+    </section>
+    <section class="lower-grid">
+      <div>
+        <h2>We are not collecting:</h2>
+        <ul><li>Chipped or dirty items</li><li>Wine and shot glasses</li><li>Highly specialized cooking utensils</li><li>Cookbooks</li><li>Large or heavy electronic items</li><li>Holiday-themed dishware</li><li>Food storage containers</li><li>Disposable plates and flatware</li></ul>
+        <p>If in doubt - <a href={withBase('/contact?subject=donation')}>Ask us!</a></p>
+      </div>
+      <div>
+        <h2>How To:</h2>
+        <p>Each complete kit should contain four place settings, a pan and cooking pot, baking tray, cutting board, sharp knife, utensils, a dish towel, oven mitt, and can opener. Add two or three useful extras and pack everything securely in one box.</p>
+        <a href={withBase('/volunteer-collective-project')}>More packing tips and video</a>
+      </div>
+    </section>
+    <a class="up" href={withBase('/')} aria-label="Back to home">&#8963;</a>
+  </main>
+</BaseLayout>
+
+<style>
+  .kitchen-page { color: #563515; font-family: 'Amatic SC', cursive; text-transform: uppercase; }
+  header { display: grid; height: 194px; place-items: center; background: #fbceb3; }
+  h1 { margin: 0; color: #33312e; font-size: 62px; font-weight: 400; }
+  .top-grid, .lower-grid { display: grid; grid-template-columns: 1fr 1fr; }
+  .top-grid > div, .lower-grid > div { min-height: 840px; padding: 38px max(35px, calc((100vw - 1180px) / 2)); }
+  .collecting { background: #fff7e7; }
+  .dropoff { background: #a8e8e4; text-align: center; }
+  h2 { margin: 0 0 34px; font-size: 58px; font-weight: 400; text-align: center; }
+  ul { margin: 0; padding-left: 27px; font-size: 34px; line-height: 1.32; }
+  .collecting p { margin: 100px 0 0; font-size: 28px; line-height: 1.45; text-align: center; }
+  .collecting em { color: #f37121; font-style: normal; }
+  .paused { display: grid; min-height: 505px; margin: 45px auto 20px; padding: 25px; place-items: center; border-radius: 35px; background: #f5ae83; font-size: 60px; line-height: 1.55; }
+  .dropoff > p { margin: 20px 0 0; font-size: 35px; line-height: 1.05; }
+  .lower-grid > div { min-height: 600px; }
+  .lower-grid > div:first-child { background: #fbceb3; }
+  .lower-grid > div:last-child { background: #fff7e7; }
+  .lower-grid p, .lower-grid a { font-size: 30px; line-height: 1.4; }
+  .lower-grid a { color: #563515; }
+  .up { display: grid; width: 48px; height: 48px; margin: 28px auto; place-items: center; border-radius: 50%; color: white; background: #20bab1; font: 28px Arial, sans-serif; text-decoration: none; }
+  @media (max-width: 720px) { header { height: 130px; } h1 { font-size: 48px; } .top-grid, .lower-grid { grid-template-columns: 1fr; } .top-grid > div, .lower-grid > div { min-height: 0; padding: 36px 22px; } h2 { font-size: 46px; } ul { font-size: 28px; } .collecting p { margin-top: 55px; } .paused { min-height: 330px; font-size: 45px; } }
+</style>

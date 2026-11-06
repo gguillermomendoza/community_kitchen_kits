@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../utils/withBase';
+---
+
+<BaseLayout title="Volunteer Collective project | CommunityKitchenKits" description="Learn how to pack a complete Community Kitchen Kit and watch our packing video.">
+  <main class="packing-stage">
+    <section>
+      <h1>How To:</h1>
+      <p>Each kit should contain:</p>
+      <ul><li>Four plates, bowls, mugs, and glasses</li><li>Four knives, forks, and spoons</li><li>A pan and cooking pot</li><li>A baking tray or casserole dish</li><li>A cutting board and kitchen knives</li><li>Cooking utensils, dish towel, oven mitt, and can opener</li><li>A few lightweight extras</li></ul>
+      <p>Make sure everything fits in one box that closes securely. Wrap breakable items and do not seal an incomplete kit.</p>
+      <h2>Do not include</h2>
+      <p>Chipped or dirty items, wine glasses, cookbooks, highly specialized utensils, large or heavy items, holiday dishware, or disposable plates and flatware.</p>
+    </section>
+    <div class="video-block"><video controls poster={withBase('/assets/images/packing-video-poster.webp')}><source src={withBase('/assets/video/packing-a-kit.mp4')} type="video/mp4" /></video><h2>Check out this video for more tips on packing up a kit!</h2></div>
+    <a class="up" href={withBase('/')} aria-label="Back to home">&#8963;</a>
+  </main>
+</BaseLayout>
+
+<style>
+  .packing-stage { display: grid; grid-template-columns: 1.1fr .9fr; gap: 60px; width: min(980px, calc(100% - 36px)); margin: 0 auto; padding: 55px 0; color: #563515; font-family: 'Amatic SC', cursive; font-size: 29px; line-height: 1.35; text-transform: uppercase; }
+  h1 { margin: 0; font-size: 72px; font-weight: 400; } h2 { font-size: 48px; font-weight: 400; } ul { padding-left: 25px; } .video-block { align-self: center; text-align: center; } video { width: 100%; border: 3px solid #20bab1; } .up { grid-column: 1 / -1; margin: auto; color: #563515; font: 30px Arial, sans-serif; text-decoration: none; }
+  @media (max-width: 700px) { .packing-stage { grid-template-columns: 1fr; font-size: 25px; } .up { grid-column: auto; } }
+</style>

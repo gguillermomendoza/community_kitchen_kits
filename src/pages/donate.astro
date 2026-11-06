@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../utils/withBase';
+---
+
+<BaseLayout title="Donate | CommunityKitchenKits" description="Donate kitchen items or make a financial gift to Community Kitchen Kits through Big Sunday.">
+  <main class="donate-stage">
+    <img class="piece piece-4" src={withBase('/assets/images/donate-4.webp')} alt="" />
+    <img class="piece piece-6" src={withBase('/assets/images/donate-6.webp')} alt="" />
+    <img class="piece piece-1" src={withBase('/assets/images/donate-1.webp')} alt="" />
+    <img class="piece piece-3" src={withBase('/assets/images/donate-3.webp')} alt="" />
+    <h1>Donate</h1>
+    <a class="choice items" href={withBase('/kitchenitems')}>Kitchen Items</a>
+    <a class="choice financial" href="https://bigsundayorg.wufoo.com/forms/z1oxby221rqnekr/" rel="noreferrer">Financial</a>
+    <a class="up" href={withBase('/')} aria-label="Back to home">&#8963;</a>
+  </main>
+</BaseLayout>
+
+<style>
+  .donate-stage { position: relative; width: min(1200px, 100%); min-height: 1035px; margin: 0 auto; color: #563515; font-family: 'Amatic SC', cursive; overflow: hidden; }
+  h1 { position: absolute; z-index: 3; top: 165px; left: 330px; margin: 0; font-size: 62px; text-transform: uppercase; }
+  .piece { position: absolute; object-fit: contain; }
+  .piece-4 { top: -12px; left: -55px; width: 520px; height: 1020px; }
+  .piece-6 { top: 75px; left: 415px; width: 480px; height: 960px; }
+  .piece-1 { top: 42px; right: 20px; width: 225px; height: 950px; }
+  .piece-3 { top: 250px; left: -5px; width: 295px; height: 780px; }
+  .choice { position: absolute; z-index: 4; display: grid; width: 160px; height: 160px; place-items: center; border-radius: 50%; color: white; font-size: 32px; text-decoration: none; text-transform: uppercase; }
+  .items { top: 355px; left: 470px; background: #b59dcb; }
+  .financial { top: 265px; left: 770px; background: #f86d14; }
+  .up { position: absolute; z-index: 4; right: 30px; bottom: 25px; color: #563515; font-size: 30px; text-decoration: none; }
+  @media (max-width: 760px) { .donate-stage { min-height: 820px; transform-origin: top left; } h1 { top: 70px; left: 38%; font-size: 52px; } .piece-4 { left: -170px; width: 430px; } .piece-6 { top: 110px; left: 115px; width: 350px; } .piece-1 { right: -100px; width: 180px; } .piece-3 { left: -90px; } .choice { width: 125px; height: 125px; font-size: 25px; } .items { top: 260px; left: 70px; } .financial { top: 390px; left: 225px; } }
+</style>

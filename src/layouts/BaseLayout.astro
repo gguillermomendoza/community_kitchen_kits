@@ -1,0 +1,84 @@
+---
+import '../styles/global.css';
+import { withBase } from '../utils/withBase';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  hideNav?: boolean;
+}
+
+const {
+  title,
+  description,
+  image = withBase('/assets/images/ckk-logo.webp'),
+  hideNav = true,
+} = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const socialImage = new URL(image, Astro.site);
+const navItems = [
+  { href: withBase('/about'), label: 'About' },
+  { href: withBase('/donate'), label: 'Donate' },
+  { href: withBase('/kitchenitems'), label: 'Kitchen Items' },
+  { href: withBase('/news'), label: 'News' },
+  { href: withBase('/contact'), label: 'Contact' },
+];
+const isGithubPreview = import.meta.env.PUBLIC_GITHUB_PAGES === 'true';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#fff7e7" />
+    <meta name="description" content={description} />
+    {isGithubPreview && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href={withBase('/favicon.svg')} type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Community Kitchen Kits" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={socialImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    {!hideNav && (
+      <header class="site-header">
+        <a class="wordmark" href={withBase('/')} aria-label="Community Kitchen Kits home">
+          <span>Community</span>
+          <strong>Kitchen Kits</strong>
+        </a>
+        <nav aria-label="Main navigation">
+          {navItems.map((item) => (
+            <a href={item.href} aria-current={Astro.url.pathname === item.href ? 'page' : undefined}>
+              {item.label}
+            </a>
+          ))}
+        </nav>
+      </header>
+    )}
+    <div id="main-content">
+      <slot />
+    </div>
+    {!hideNav && (
+      <footer class="site-footer">
+        <p>Repurposing kitchen items to welcome people home.</p>
+        <div>
+          <a href="mailto:communitykitchenkits@gmail.com">communitykitchenkits@gmail.com</a>
+          <a href="https://www.instagram.com/communitykitchenkits/" rel="noreferrer">Instagram</a>
+          <a href="https://www.facebook.com/groups/742679119895109" rel="noreferrer">Facebook</a>
+        </div>
+        <p class="legal">A program of <a href="https://bigsunday.org/" rel="noreferrer">Big Sunday</a>, a registered 501(c)(3) organization.</p>
+      </footer>
+    )}
+  </body>
+</html>

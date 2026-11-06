@@ -1,13 +1,17 @@
 {
-  "devDependencies": {
-    "@wix/cli": "^1.0.0",
-    "@wix/eslint-plugin-cli": "^1.0.0",
-    "eslint": "^8.25.0",
-    "react": "16.14.0"
-  },
+  "name": "community-kitchen-kits",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "postinstall": "wix sync-types",
-    "dev": "wix dev",
-    "lint": "eslint ."
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.6",
+    "astro": "^7.4.6",
+    "typescript": "^5.9.3"
   }
 }
